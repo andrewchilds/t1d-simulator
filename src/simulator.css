@@ -1,0 +1,32 @@
+
+html.theme-light {
+  --message-overlay-bg: rgba(60, 60, 60, 0.9);
+
+  --high-bg-area-color: hsla(var(--yellow-hue), 60%, 80%, 0.3);
+  --in-range-bg-area-color: hsla(var(--green-hue), 60%, 80%, 0.5);
+  --low-bg-area-color: hsla(var(--red-hue), 60%, 80%, 0.3);
+
+  --high-bg-area-border-color: hsla(var(--yellow-hue), 90%, 60%, 0.6);
+  --low-bg-area-border-color: hsla(var(--red-hue), 90%, 60%, 0.6);
+
+  --hyper-text-color: hsl(var(--yellow-hue), 95%, 45%);
+  --hypo-text-color: hsl(var(--red-hue), 90%, 40%);
+}
+
+html.theme-dark {
+  --message-overlay-bg: rgba(0, 0, 0, 0.9);
+
+  --high-bg-area-color: hsla(var(--yellow-hue), 60%, 25%, 0.3);
+  --in-range-bg-area-color: hsla(var(--green-hue), 60%, 25%, 0.5);
+  --low-bg-area-color: hsla(var(--red-hue), 60%, 25%, 0.3);
+
+  --high-bg-area-border-color: hsla(var(--yellow-hue), 80%, 50%, 0.5);
+  --low-bg-area-border-color: hsla(var(--red-hue), 80%, 50%, 0.5);
+
+  --hyper-text-color: hsl(var(--yellow-hue), 95%, 50%);
+  --hypo-text-color: hsl(var(--red-hue), 90%, 60%);
+}
+
+html, body {
+  background: var(--page-bg-color);
+}

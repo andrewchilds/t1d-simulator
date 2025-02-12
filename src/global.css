@@ -1,0 +1,483 @@
+html {
+  /* base hues */
+  --red-hue: 355;
+  --orange-hue: 25;
+  --yellow-hue: 50;
+  --green-hue: 89;
+  --blue-hue: 202;
+  --dark-blue-hue: 220;
+  --purple-hue: 285;
+
+  /* z-indexes */
+  --z-modal-dialog-backdrop: 99;
+  --z-modal-dialogs: 100;
+  --z-dropdowns: 110;
+  --z-toasts: 120;
+  --z-tooltips: 130;
+
+  --z-ios-nav: 10;
+  --z-ios-header: 99999;
+
+  /* weights */
+  --regular-weight: 400;
+  --bold-weight: 600;
+}
+
+html.theme-light {
+  --html-bg-color: #000;
+  --page-bg-color: hsl(var(--yellow-hue), 6%, 94%);
+  --dialog-bg-color: hsl(var(--yellow-hue), 12%, 92%);
+
+  --ios-header-bg-color: #000;
+
+  --nav-bg-color: hsl(var(--green-hue), 60%, 18%);
+  --nav-bg-color-selected: hsl(var(--green-hue), 65%, 22%);
+  --nav-text-color: hsl(var(--green-hue), 50%, 80%);
+  --nav-text-color-selected: #fff;
+
+  --loading-spinner-background: rgba(0, 0, 0, 0.1);
+  --loading-spinner-color: rgba(0, 0, 0, 0.9);
+
+  --input-bg-color: rgba(255, 255, 255, 0.6);
+  --input-bg-color-focus: rgba(255, 255, 255, 0.8);
+  --input-border-color: rgba(255, 255, 255, 0.12);
+  --input-border-hover: rgba(255, 255, 255, 0.4);
+  --input-border-focus: hsl(var(--blue-hue), 100%, 60%);
+
+  --radio-button-bg: #fff;
+
+  --text-color: #333;
+  --text-color-dull: #707070;
+  --text-color-very-dull: #888;
+  --text-color-bright: #111;
+  --text-highlighted-bg: hsl(var(--yellow-hue), 90%, 80%);
+  --text-highlighted-color: #111;
+  --text-allergy-color: hsl(var(--red-hue), 100%, 40%);
+
+  --tag-bg: hsl(var(--yellow-hue), 40%, 92%);
+  --tag-bg-brand: hsl(var(--blue-hue), 60%, 92%);
+
+  --link-color: hsl(var(--blue-hue), 50%, 40%);
+  --link-underline-color: hsl(var(--blue-hue), 60%, 65%);
+  --link-color-hover: hsl(var(--blue-hue), 70%, 40%);
+
+  --placeholder-color: #ccc;
+
+  --border-color: #bbb;
+  --border-color-dull: #ddd;
+  --border-color-bright: #777;
+
+  --button-bg-color: rgba(0, 0, 0, 0.08);
+  --button-bg-color-hover: rgba(255, 255, 255, 0.5);
+  --button-bg-color-active: rgba(0, 0, 0, 0.14);
+  --button-text-color-active: #111;
+
+  --button-input-like-bg-color: rgba(255, 255, 255, 0.3);
+
+  --button-primary-bg-color: hsl(var(--green-hue), 60%, 38%);
+  --button-primary-bg-color-hover: hsl(var(--green-hue), 60%, 42%);
+  --button-primary-bg-color-active: #444;
+  --button-primary-text-color: #fff;
+  --button-primary-text-color-active: #fff;
+
+  --button-alert-bg-color: hsl(var(--yellow-hue), 75%, 38%);
+  --button-alert-bg-color-hover: hsl(var(--yellow-hue), 75%, 42%);
+  --button-alert-bg-color-active: hsl(var(--yellow-hue), 75%, 38%);
+  --button-alert-text-color: #fff;
+  --button-alert-text-color-active: #fff;
+
+  --login-card-bg-color: #eee;
+
+  --list-item-hover: #e1effb;
+
+  --drop-shadow-bright: rgba(0, 0, 0, 0.14);
+  --drop-shadow: rgba(0, 0, 0, 0.14);
+  --drop-shadow-dull: rgba(0, 0, 0, 0.08);
+
+  --flash-text-color: #fff;
+  --flash-error-bg-color: hsl(var(--red-hue), 70%, 40%);
+  --flash-info-bg-color: hsl(var(--blue-hue), 50%, 45%);
+  --flash-success-bg-color: hsl(var(--green-hue), 90%, 30%);
+
+  --tooltip-bg-color: #333;
+  --tooltip-text-color: #eee;
+
+  --dropdown-bg-color: #fafafa;
+  --dropdown-hover-item-bg-color: #eee;
+  --dropdown-selected-item-bg-color: hsl(var(--blue-hue), 65%, 92%);
+
+  --badge-yellow-bg-color: hsl(var(--yellow-hue), 80%, 100%);
+  --badge-yellow-text-color: hsl(var(--yellow-hue), 60%, 25%);
+  --badge-green-bg-color: hsla(var(--green-hue), 80%, 65%, 0.3);
+  --badge-green-text-color: hsl(var(--green-hue), 50%, 30%);
+  --badge-red-bg-color: hsla(var(--red-hue), 80%, 65%, 0.3);
+  --badge-red-text-color: hsl(var(--red-hue), 50%, 30%);
+  --badge-blue-bg-color: hsla(var(--blue-hue), 80%, 65%, 0.15);
+  --badge-blue-text-color: hsl(var(--blue-hue), 60%, 40%);
+
+  --card-bg-color: rgba(255, 255, 255, 0.6);
+  --card-dull-bg-color: rgba(255, 255, 255, 0.35);
+
+  --food-list-hover: rgba(255, 255, 255, 0.5);
+
+  --toast-bg-error: hsl(var(--red-hue), 60%, 92%);
+  --toast-color-error: hsl(var(--red-hue), 50%, 40%);
+  --toast-bg-alert: hsl(var(--yellow-hue), 60%, 92%);
+  --toast-color-alert: hsl(var(--yellow-hue), 50%, 35%);
+  --toast-bg-success: hsl(var(--green-hue), 60%, 92%);
+  --toast-color-success: hsl(var(--green-hue), 50%, 30%);
+  --toast-bg-info: hsl(var(--blue-hue), 60%, 92%);
+  --toast-color-info: hsl(var(--blue-hue), 50%, 40%);
+  --toast-sidebar-bg: rgba(255, 255, 255, 0.4);
+
+  --homepage-header-bg: rgba(255, 255, 255, 0.6);
+  --homepage-meal-tracking-bg: hsla(var(--blue-hue), 70%, 75%, 30%);
+  --homepage-nutritional-reporting-bg: hsla(var(--yellow-hue), 70%, 65%, 30%);
+  --homepage-diabetes-reporting-bg: hsla(var(--purple-hue), 20%, 80%, 30%);
+  --homepage-footer-bg: hsl(var(--blue-hue), 15%, 90%);
+
+  --message-info-bg-color: hsl(var(--blue-hue), 60%, 94%);
+  --message-info-text-color: hsl(var(--blue-hue), 85%, 20%);
+
+  --message-alert-bg-color: hsl(var(--yellow-hue), 90%, 92%);
+  --message-alert-text-color: hsl(var(--yellow-hue), 60%, 20%);
+
+  --calendar-box-bg-color: hsl(var(--green-hue), 60%, 90%);
+
+  --glucose-dot-color: hsl(var(--green-hue), 30%, 45%);
+  --glucose-chart-area-green: hsla(var(--green-hue), 60%, 60%, 0.15);
+  --glucose-chart-label-bg-color: #fff;
+  --glucose-chart-meal-label-color: hsl(var(--green-hue), 70%, 40%);
+  --glucose-chart-bolus-label-color: hsl(var(--purple-hue), 80%, 65%);
+
+  --pie-chart-border: rgba(255, 255, 255, 0.6);
+
+  --chart-bg-color: rgba(255, 255, 255, 0.8);
+  --chart-annotation-bg-color: rgba(0, 0, 0, 0.1);
+  --chart-avg-line: rgba(0, 0, 0, 0.8);
+
+  --chart-color-light-gray: rgba(0, 0, 0, 0.07);
+  --chart-color-gray: rgb(120, 120, 120);
+  --chart-color-red: hsl(var(--red-hue), 70%, 55%);
+  --chart-color-orange: hsl(var(--orange-hue), 80%, 50%);
+  --chart-color-yellow: hsl(var(--yellow-hue), 80%, 50%);
+  --chart-color-yellow-text: hsl(var(--yellow-hue), 80%, 38%);
+  --chart-color-green: hsl(var(--green-hue), 65%, 40%);
+  --chart-color-blue: hsl(var(--blue-hue), 70%, 50%);
+  --chart-color-dark-blue: hsl(var(--dark-blue-hue), 70%, 40%);
+  --chart-color-purple: hsl(var(--purple-hue), 50%, 60%);
+  --chart-color-brown: hsl(var(--orange-hue), 50%, 20%);
+  --chart-color-brown-text: hsl(var(--orange-hue), 50%, 20%);
+
+  --did-you-know-bg: hsl(var(--blue-hue), 12%, 90%);
+}
+
+html.theme-dark {
+  --html-bg-color: #000;
+  --page-bg-color: hsl(var(--blue-hue), 10%, 10%);
+  --dialog-bg-color: hsl(var(--blue-hue), 10%, 12%);
+
+  --ios-header-bg-color: #000;
+
+  --loading-spinner-background: rgba(255, 255, 255, 0.1);
+  --loading-spinner-color: rgba(255, 255, 255, 0.7);
+
+  --input-bg-color: rgba(0, 0, 0, 0.3);
+  --input-bg-color-focus: rgba(0, 0, 0, 0.5);
+  --input-border-color: rgba(0, 0, 0, 0.1);
+  --input-border-hover: rgba(0, 0, 0, 0.3);
+  --input-border-focus: hsl(var(--blue-hue), 100%, 50%);
+
+  --radio-button-bg: #000;
+
+  --tag-bg: hsl(var(--yellow-hue), 20%, 20%);
+  --tag-bg-brand: hsl(var(--blue-hue), 60%, 20%);
+
+  --text-color: rgba(255, 255, 255, 0.9);
+  --text-color-dull: rgba(255, 255, 255, 0.55);
+  --text-color-very-dull: rgba(255, 255, 255, 0.5);
+  --text-color-bright: #fafafa;
+  --text-highlighted-bg: hsl(var(--yellow-hue), 50%, 25%);
+  --text-highlighted-color: #fafafa;
+  --text-allergy-color: hsl(var(--red-hue), 100%, 68%);
+
+  --placeholder-color: rgba(255, 255, 255, 0.3);
+
+  --link-color: hsl(var(--blue-hue), 80%, 70%);
+  --link-underline-color: hsl(var(--blue-hue), 40%, 50%);
+  --link-color-hover: hsl(var(--blue-hue), 80%, 85%);
+
+  --border-color: rgba(255, 255, 255, 0.35);
+  --border-color-dull: rgba(255, 255, 255, 0.15);
+  --border-color-bright: rgba(255, 255, 255, 0.7);
+
+  --button-bg-color: rgba(255, 255, 255, 0.16);
+  --button-bg-color-hover: rgba(255, 255, 255, 0.25);
+  --button-bg-color-active: rgba(255, 255, 255, 0.1);
+  --button-text-color-active: #fff;
+
+  --button-input-like-bg-color: rgba(255, 255, 255, 0.1);
+
+  --button-primary-bg-color: hsl(var(--green-hue), 60%, 32%);
+  --button-primary-bg-color-hover: hsl(var(--green-hue), 60%, 40%);
+  --button-primary-bg-color-active: rgba(255, 255, 255, 0.4);
+  --button-primary-text-color: #fff;
+  --button-primary-text-color-active: #fff;
+
+  --button-alert-bg-color: hsl(var(--yellow-hue), 60%, 32%);
+  --button-alert-bg-color-hover: hsl(var(--yellow-hue), 60%, 40%);
+  --button-alert-bg-color-active: rgba(255, 255, 255, 0.4);
+  --button-alert-text-color: #fff;
+  --button-alert-text-color-active: #fff;
+
+  --dropdown-bg-color: #393939;
+  --dropdown-hover-item-bg-color: rgba(255, 255, 255, 0.15);
+  --dropdown-selected-item-bg-color: hsl(var(--blue-hue), 60%, 35%);
+
+  --flash-text-color: #fff;
+  --flash-error-bg-color: hsl(var(--red-hue), 70%, 40%);
+  --flash-info-bg-color: hsl(var(--blue-hue), 50%, 45%);
+  --flash-success-bg-color: hsl(var(--green-hue), 90%, 30%);
+
+  --login-card-bg-color: #333;
+
+  --nav-bg-color: #131517;
+  --nav-bg-color-selected: rgba(255, 255, 255, 0.05);
+  --nav-text-color: rgba(255, 255, 255, 0.7);
+  --nav-text-color-selected: #fff;
+
+  --list-item-hover: #263949;
+
+  --drop-shadow-bright: rgba(0, 0, 0, 0.5);
+  --drop-shadow: rgba(0, 0, 0, 0.3);
+  --drop-shadow-dull: rgba(0, 0, 0, 0.15);
+
+  --tooltip-bg-color: #eee;
+  --tooltip-text-color: #333;
+
+  --badge-yellow-bg-color: hsl(var(--yellow-hue), 70%, 25%);
+  --badge-yellow-text-color: hsl(var(--yellow-hue), 50%, 75%);
+  --badge-green-bg-color: hsl(var(--green-hue), 70%, 25%);
+  --badge-green-text-color: hsl(var(--green-hue), 50%, 75%);
+  --badge-red-bg-color: hsl(var(--red-hue), 70%, 25%);
+  --badge-red-text-color: hsl(var(--red-hue), 50%, 75%);
+  --badge-blue-bg-color: hsla(var(--blue-hue), 80%, 75%, 25%);
+  --badge-blue-text-color: hsl(var(--blue-hue), 60%, 75%);
+
+  --card-bg-color: rgba(255, 255, 255, 0.06);
+  --card-dull-bg-color: rgba(255, 255, 255, 0.03);
+
+  --food-list-hover: rgba(255, 255, 255, 0.1);
+
+  --toast-bg-error: hsl(var(--red-hue), 50%, 20%);
+  --toast-color-error: hsl(var(--red-hue), 50%, 80%);
+  --toast-bg-alert: hsl(var(--yellow-hue), 80%, 20%);
+  --toast-color-alert: hsl(var(--yellow-hue), 50%, 70%);
+  --toast-bg-success: hsl(var(--green-hue), 70%, 20%);
+  --toast-color-success: hsl(var(--green-hue), 50%, 70%);
+  --toast-bg-info: hsl(var(--blue-hue), 70%, 22%);
+  --toast-color-info: hsl(var(--blue-hue), 20%, 75%);
+  --toast-sidebar-bg: rgba(0, 0, 0, 0.2);
+
+  --homepage-header-bg: #0f0f0f;
+  --homepage-meal-tracking-bg: hsla(var(--blue-hue), 50%, 40%, 30%);
+  --homepage-nutritional-reporting-bg: hsla(var(--orange-hue), 50%, 42%, 30%);
+  --homepage-diabetes-reporting-bg: hsla(var(--purple-hue), 50%, 42%, 36%);
+  --homepage-footer-bg: #0f0f0f;
+
+  --message-info-bg-color: var(--card-bg-color);
+  --message-info-text-color: rgba(255, 255, 255, 0.8);
+
+  --message-alert-bg-color: var(--card-bg-color);
+  --message-alert-text-color: rgba(255, 255, 255, 0.8);
+
+  --calendar-box-bg-color: hsl(var(--green-hue), 60%, 5%);
+
+  --glucose-dot-color: hsl(var(--green-hue), 50%, 70%);
+  --glucose-chart-area-green: hsla(var(--green-hue), 80%, 50%, 0.05);
+  --glucose-chart-label-bg-color: #505050;
+  --glucose-chart-meal-label-color: hsl(var(--green-hue), 90%, 85%);
+  --glucose-chart-bolus-label-color: hsl(var(--purple-hue), 90%, 85%);
+
+  --pie-chart-border: rgba(255, 255, 255, 0.15);
+
+  --chart-bg-color: rgba(255, 255, 255, 0.06);
+  --chart-annotation-bg-color: rgba(255, 255, 255, 0.2);
+  --chart-avg-line: rgba(255, 255, 255, 0.1);
+
+  --chart-color-light-gray: rgba(255, 255, 255, 0.1);
+  --chart-color-gray: rgb(100, 100, 100);
+  --chart-color-red: hsl(var(--red-hue), 70%, 55%);
+  --chart-color-orange: hsl(var(--orange-hue), 80%, 50%);
+  --chart-color-yellow: hsl(var(--yellow-hue), 80%, 50%);
+  --chart-color-yellow-text: hsl(var(--yellow-hue), 80%, 50%);
+  --chart-color-green: hsl(var(--green-hue), 65%, 40%);
+  --chart-color-blue: hsl(var(--blue-hue), 70%, 50%);
+  --chart-color-dark-blue: hsl(var(--dark-blue-hue), 70%, 40%);
+  --chart-color-purple: hsl(var(--purple-hue), 50%, 55%);
+  --chart-color-brown: hsl(var(--orange-hue), 40%, 35%);
+  --chart-color-brown-text: hsl(var(--orange-hue), 40%, 45%);
+
+  --did-you-know-bg: hsl(var(--blue-hue), 15%, 15%);
+}
+
+html {
+  /* Prevent font scaling in landscape while allowing user zoom */
+  /* Ref: https://stackoverflow.com/a/2711132/440094 */
+  -webkit-text-size-adjust: 100%;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background: var(--html-bg-color);
+}
+
+html.app-ui, .app-ui body {
+  /* Hiding page scrollbar: https://stackoverflow.com/a/49278385/440094 */
+  scrollbar-width: none;
+}
+
+html.app-ui ::-webkit-scrollbar {
+  /* Webkit, Chrome */
+  display: none;
+}
+
+html.barcode-scanner-active body {
+  background: transparent !important;
+  display: none;
+  opacity: 0;
+}
+
+::placeholder {
+  color: var(--placeholder-color);
+}
+
+body {
+  padding-top: env(safe-area-inset-top, 0px);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+body, html, select, input, textarea, button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-weight: var(--regular-weight);
+  font-size: 16px;
+  line-height: 140%;
+}
+
+a, input, textarea, button {
+  border-style: unset;
+}
+
+h1, h2, h3, h4 {
+  font-weight: var(--bold-weight);
+}
+
+a, a:hover, a:focus, a:active, button, label, input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--link-underline-color);
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  color: var(--link-color-hover);
+}
+
+/* Hide the up/down arrows for number type inputs */
+/* Ref: https://stackoverflow.com/a/4298216/440094 */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield; /* Firefox */
+}
+
+button {
+  cursor: pointer;
+  margin: 0;
+}
+
+.has-saltdown h3 {
+  margin: 14px 0 7px;
+  font-size: 17px;
+}
+
+.has-saltdown h3:first-child {
+  margin-top: 7px;
+}
+
+.has-saltdown p {
+  font-size: 17px;
+  line-height: 135%;
+  margin: 7px 0;
+}
+
+input {
+  margin: 0;
+}
+
+ol, ul {
+  margin: 8px 0 12px;
+  padding: 0 0 0 24px;
+}
+
+li {
+  padding: 5px 2px;
+  margin: 0;
+  font-size: 17px;
+  line-height: 140%;
+}
+
+li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+table {
+  border-spacing: 0;
+  width: 100%;
+}
+
+th {
+  padding: 8px 14px 8px 0;
+  text-align: left;
+}
+
+td {
+  border-top: 1px solid var(--border-color-dull);
+  padding: 8px 14px 8px 0;
+}
+
+.screen-reader-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+/* Global because it's added/removed outside of Svelte. */
+.draggable-drop-target {
+  opacity: 0.5;
+}

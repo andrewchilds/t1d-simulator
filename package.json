@@ -1,0 +1,27 @@
+{
+  "name": "t1d-simulator",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "NODE_ENV=production rollup -c",
+    "watch": "rollup -c -w",
+    "start": "rollup -c && sirv public --no-clear --single",
+    "test": "NODE_ENV=test node_modules/mocha/bin/mocha src/*/*.spec.js",
+    "knip": "knip"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "21.0.1",
+    "@rollup/plugin-node-resolve": "13.1.3",
+    "@types/node": "^22.13.1",
+    "knip": "^5.44.1",
+    "mocha": "9.2.2",
+    "rollup": "2.66.0",
+    "rollup-plugin-copy": "3.4.0",
+    "rollup-plugin-css-only": "3.1.0",
+    "rollup-plugin-svelte": "7.1.0",
+    "rollup-plugin-terser": "7.0.2",
+    "sirv-cli": "2.0.2",
+    "svelte": "3.46.2",
+    "typescript": "^5.7.3"
+  }
+}

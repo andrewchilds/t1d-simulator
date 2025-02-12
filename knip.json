@@ -1,0 +1,12 @@
+{
+  "entry": ["src/simulator.js"],
+  "project": ["src/*.{js,svelte}", "src/**/*.{js,svelte}"],
+  "ignore": [
+    "public/**",
+    "node_modules/**",
+    "**/*.spec.js",
+    "**/*.test.js",
+    "**/__tests__/**"
+  ],
+  "ignoreDependencies": ["mocha"]
+}
