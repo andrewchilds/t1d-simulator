@@ -10,7 +10,7 @@ The simulation of ketones does not currently account for starvation ketones, or 
 
 ### Demo
 
-TBD
+The latest version of this repo's `main` branch is deployed to https://t1d-simulator.vercel.app.
 
 ### Running locally
 
@@ -22,6 +22,12 @@ yarn start
 ```
 
 You'll be able to see the simulation running at http://localhost:8080.
+
+Once built using `yarn start`, you can also simply open the html file to run it.
+
+```
+open public/index.html
+```
 
 ### Disclaimer
 
