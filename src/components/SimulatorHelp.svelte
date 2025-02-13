@@ -23,7 +23,7 @@
 
   <div class="page {activeTab !== 'about' ? 'hidden' : ''}">
     <p>This simulator was made to try to give people a rough sense of some of the challenges of living with Type 1 diabetes, and the types of decisions that need to be made multiple times every day, as well as create awareness about the importance of giving as many people access to the devices that can radically change their quality of life and long-term health outcomes.</p>
-    <p>This was built by <a href="https://andrewchilds.com" target="_blank">Andrew Childs</a>, author of the T1D + food management app <a href="https://saltie.app" target="_blank">Saltie</a>. His son has food allergies and T1D.</p>
+    <p>This was built by <a href="https://andrewchilds.com" target="_blank">Andrew Childs</a>, author of the T1D + food management app <a href="https://saltie.app" target="_blank">Saltie</a>. His son has food allergies and T1D. The source code is available on <a href="https://github.com/andrewchilds/t1d-simulator" target="_blank">GitHub</a>.</p>
     <p>If you have questions about management of Type 1, talk to a medical professional.</p>
     <p>If you have any questions, comments, or suggestions related to this simulation, <a href="mailto:andrew@subtractive.computer">please let Andrew know</a>.</p>
   </div>
