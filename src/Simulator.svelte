@@ -7,7 +7,7 @@
   import { initColorScheme } from './utils/theme.js';
 
   import { scaleLinear } from './utils/chart.js';
-  import { MIN_V, MAX_V, LOWER_RANGE, UPPER_RANGE, VERY_LOW_RANGE, VERY_HIGH_RANGE } from './utils/constants.js';
+  import { MIN_V, MAX_V, LOWER_RANGE, UPPER_RANGE, VERY_LOW_RANGE, VERY_HIGH_RANGE, ABSOLUTE_MIN_BG, DAMPENING_THRESHOLD } from './utils/constants.js';
   import {
     diffInMilliseconds,
     formatDate,
@@ -19,7 +19,7 @@
     setToBeginningOfHour
   } from './utils/date.js';
   import { createRange, mean, randomValueFrom, stdDev } from './utils/array.js';
-  import { exponentialInsulinCurve, sineAbsorptionCurve, walshCarbAbsorptionCurve } from './utils/calculations.js';
+  import { exponentialInsulinCurve, sineAbsorptionCurve, slowDownIAlreadyfHypo, walshCarbAbsorptionCurve } from './utils/calculations.js';
   import { oneDecimal, randomInt } from './utils/numbers.js';
   import { pluralize } from './utils/str.js';
   import { getRandomBreakfastFoods, getRandomDinnerFoods, getRandomLunchFoods } from './utils/mockFoods.js';
@@ -374,21 +374,18 @@
     if (isAwake === false) {
       return '😴';
     }
-    if (bg >= VERY_HIGH_RANGE) {
-      return '😰';
+    if (isYawning) {
+      return '🥱';
     }
-    if (bg >= UPPER_RANGE) {
-      return sicknessLevel > 0 ? '🤒' : '🫤';
+    if (sicknessLevel > 0) {
+      return '🤒';
     }
-    if (bg <= UPPER_RANGE && bg > LOWER_RANGE) {
-      return sicknessLevel > 0 ? '🤒' : (shouldBeAsleep || isYawning) ? '🥱' : isRested ? '🙂' : '😐';
+
+    if (shouldBeAsleep) {
+      return '😪';
     }
-    if (bg <= LOWER_RANGE && bg > VERY_LOW_RANGE) {
-      return sicknessLevel > 0 ? '🤒' : '😣';
-    }
-    if (bg <= VERY_LOW_RANGE) {
-      return '😵‍💫';
-    }
+
+    return '🙂';
   }
 
   function createSineWave(multiplier, turnOffset = 0) {
@@ -679,24 +676,6 @@
     timeAnnotations = a;
   }
 
-  // We assume some natural mechanism that dampens blood sugar dropping below 30-40, such that it would
-  // take exponentially more insulin to drop from 30 to 20 compared to 100 to 90.
-  //
-  // Ref: https://allnurses.com/lowest-blood-sugar-seen-t145465/
-  // Ref: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2699723/
-  // "In univariate analysis of a subset of 338 admissions for which any hypoglycemia was documented,
-  // the mean lowest recorded blood glucose was 31.8 mg/dl for patients who died in the hospital vs.
-  // 40 mg/dl for those who did not (P = 0.028)."
-  function slowDownIAlreadyfHypo(bgEffect) {
-    if (currentBg < VERY_LOW_RANGE && bgEffect < 0) {
-      let distanceFromHypoLevel = VERY_LOW_RANGE - currentBg;
-      let reducedEffect = bgEffect / Math.max(1, (distanceFromHypoLevel * 0.25));
-      return reducedEffect;
-    }
-
-    return bgEffect;
-  }
-
   function renderBg() {
     // Guard against NaN:
     if (isNaN(lastGoodCgmValue)) {
@@ -809,7 +788,11 @@
     insulinOnBoard = futureInsulinOnBoard.shift();
     carbsOnBoard = futureCarbsOnBoard.shift();
 
-    currentBg += slowDownIAlreadyfHypo(currentBgEffect);
+    currentBg += slowDownIAlreadyfHypo(currentBgEffect, currentBg);
+
+    if (currentBg < ABSOLUTE_MIN_BG) {
+      currentBg = ABSOLUTE_MIN_BG;
+    }
 
     currentCgmValue = applyJitter(currentBg) + currentCgmEffect;
 
@@ -834,7 +817,7 @@
 
     if (!isRested && !isYawning && isAwake && !shouldBeAsleep && Math.random() < 0.1) {
       isYawning = true;
-      addFutureEvent(4, () => {
+      addFutureEvent(3, () => {
         isYawning = false;
       });
     }
@@ -1425,9 +1408,16 @@
   }
 
   function fingerStick() {
-    let value = currentBg + futureBgEffects[0] + futureBgEffects[1] + futureBgEffects[2];
+    let value = currentBg +
+      slowDownIAlreadyfHypo(futureBgEffects[0], currentBg) +
+      slowDownIAlreadyfHypo(futureBgEffects[1], currentBg) +
+      slowDownIAlreadyfHypo(futureBgEffects[2], currentBg);
     let randomOffset = (value * 0.02);
     value = Math.round(value + (randomOffset - (randomOffset / 2)));
+
+    if (value < ABSOLUTE_MIN_BG) {
+      value = ABSOLUTE_MIN_BG;
+    }
 
     if (noCGM || sensorError || sensorWarmup || sensorExpired) {
       bgData[bgData.length - 1].bgValue = value;
@@ -1603,7 +1593,12 @@
 
   $: {
     gameSpeed = setGameSpeed(gameSpeedValue);
-    nextTurn();
+
+    // If currentBg is below the lower range, changing the game speed
+    // causes extremely fast turns.
+    if (currentBg > LOWER_RANGE) {
+      nextTurn();
+    }
   }
 
 </script>

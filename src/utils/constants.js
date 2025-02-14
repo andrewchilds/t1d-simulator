@@ -5,6 +5,9 @@ export const LOWER_RANGE = 70;
 export const VERY_LOW_RANGE = 55;
 export const MIN_V = 40;
 
+export const DAMPENING_THRESHOLD = 55;
+export const ABSOLUTE_MIN_BG = 20;
+
 export const ABSORPTION_RATES = {
   INSULIN: {
     RAPID: { peak: 13, duration: 48 }, // 1h 5m peak, 4h duration
